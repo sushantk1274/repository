@@ -1,0 +1,51 @@
+Order ID,Product,Category,Quantity,Unit Price,Total Price,Order Date,Region,Customer ID,Payment Method
+1001,Laptop,Electronics,2,999.99,1999.98,2024-01-15,North,C001,Credit Card
+1002,Office Chair,Furniture,5,249.99,1249.95,2024-01-16,South,C002,PayPal
+1003,Wireless Mouse,Electronics,10,29.99,299.90,2024-01-16,East,C003,Credit Card
+1004,Desk Lamp,Furniture,3,45.50,136.50,2024-01-17,West,C004,Debit Card
+1005,Keyboard,Electronics,8,79.99,639.92,2024-01-18,North,C005,Credit Card
+1006,Monitor,Electronics,4,349.99,1399.96,2024-01-19,South,C001,PayPal
+1007,Bookshelf,Furniture,2,189.99,379.98,2024-01-20,East,C006,Credit Card
+1008,Headphones,Electronics,15,149.99,2249.85,2024-01-21,West,C007,Debit Card
+1009,Filing Cabinet,Furniture,1,299.99,299.99,2024-01-22,North,C008,Credit Card
+1010,USB Hub,Electronics,20,24.99,499.80,2024-01-23,South,C009,PayPal
+1011,Standing Desk,Furniture,3,599.99,1799.97,2024-01-24,East,C010,Credit Card
+1012,Webcam,Electronics,6,89.99,539.94,2024-01-25,West,C002,Debit Card
+1013,Printer,Electronics,2,199.99,399.98,2024-01-26,North,C011,Credit Card
+1014,Office Sofa,Furniture,1,899.99,899.99,2024-01-27,South,C012,PayPal
+1015,External SSD,Electronics,12,119.99,1439.88,2024-01-28,East,C003,Credit Card
+1016,Desk Organizer,Furniture,7,35.99,251.93,2024-02-01,West,C013,Debit Card
+1017,Tablet,Electronics,5,449.99,2249.95,2024-02-02,North,C014,Credit Card
+1018,Ergonomic Chair,Furniture,4,549.99,2199.96,2024-02-03,South,C015,PayPal
+1019,Smart Watch,Electronics,9,299.99,2699.91,2024-02-04,East,C016,Credit Card
+1020,Coffee Table,Furniture,2,159.99,319.98,2024-02-05,West,C017,Debit Card
+1021,Laptop Stand,Electronics,11,49.99,549.89,2024-02-06,North,C018,Credit Card
+1022,Desk Chair,Furniture,6,179.99,1079.94,2024-02-07,South,C019,PayPal
+1023,Bluetooth Speaker,Electronics,8,69.99,559.92,2024-02-08,East,C020,Credit Card
+1024,Wall Shelf,Furniture,4,89.99,359.96,2024-02-09,West,C001,Debit Card
+1025,Power Bank,Electronics,25,39.99,999.75,2024-02-10,North,C021,Credit Card
+1026,TV Stand,Furniture,2,249.99,499.98,2024-02-11,South,C022,PayPal
+1027,Gaming Mouse,Electronics,7,59.99,419.93,2024-02-12,East,C023,Credit Card
+1028,Storage Cabinet,Furniture,1,399.99,399.99,2024-02-13,West,C024,Debit Card
+1029,Wireless Charger,Electronics,18,29.99,539.82,2024-02-14,North,C025,Credit Card
+1030,Recliner,Furniture,1,699.99,699.99,2024-02-15,South,C026,PayPal
+1031,Graphics Card,Electronics,3,599.99,1799.97,2024-02-16,East,C027,Credit Card
+1032,Computer Desk,Furniture,2,329.99,659.98,2024-02-17,West,C028,Debit Card
+1033,RAM Module,Electronics,14,89.99,1259.86,2024-02-18,North,C029,Credit Card
+1034,Bedside Table,Furniture,3,119.99,359.97,2024-02-19,South,C030,PayPal
+1035,Mechanical Keyboard,Electronics,6,129.99,779.94,2024-02-20,East,C031,Credit Card
+1036,Dining Table,Furniture,1,799.99,799.99,2024-02-21,West,C032,Debit Card
+1037,VR Headset,Electronics,2,499.99,999.98,2024-02-22,North,C033,Credit Card
+1038,Wardrobe,Furniture,1,549.99,549.99,2024-02-23,South,C034,PayPal
+1039,Network Switch,Electronics,4,149.99,599.96,2024-02-24,East,C035,Credit Card
+1040,Shoe Rack,Furniture,5,69.99,349.95,2024-02-25,West,C036,Debit Card
+1041,Router,Electronics,10,79.99,799.90,2024-02-26,North,C037,Credit Card
+1042,Console Table,Furniture,2,199.99,399.98,2024-02-27,South,C038,PayPal
+1043,CPU Cooler,Electronics,8,54.99,439.92,2024-02-28,East,C039,Credit Card
+1044,Dresser,Furniture,1,449.99,449.99,2024-03-01,West,C040,Debit Card
+1045,Portable Monitor,Electronics,5,229.99,1149.95,2024-03-02,North,C041,Credit Card
+1046,Patio Chair,Furniture,8,129.99,1039.92,2024-03-03,South,C042,PayPal
+1047,Docking Station,Electronics,3,179.99,539.97,2024-03-04,East,C043,Credit Card
+1048,Kitchen Island,Furniture,1,599.99,599.99,2024-03-05,West,C044,Debit Card
+1049,Action Camera,Electronics,4,349.99,1399.96,2024-03-06,North,C045,Credit Card
+1050,Bar Stool,Furniture,6,99.99,599.94,2024-03-07,South,C046,PayPal
