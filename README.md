@@ -1,7 +1,10 @@
+# Assignments
+
 This repository contains two Python assignments demonstrating thread synchronization and data analysis using functional programming.
 
 ## Project Structure
 
+```
 ├── assignment1/
 │   ├── producer_consumer.py      # Producer-Consumer pattern implementation
 │   └── test_producer_consumer.py # Unit tests for Assignment 1
@@ -10,43 +13,54 @@ This repository contains two Python assignments demonstrating thread synchroniza
 │   ├── sales_data.csv            # Sample sales data (50 records)
 │   └── test_sales_analysis.py    # Unit tests for Assignment 2
 └── README.md
+```
 
 ## Requirements
 
 - Python 3.8+
 - No external dependencies required (uses standard library only)
 
-Setup Instructions
+## Setup Instructions
 
 1. Clone the repository:
 
+```bash
 git clone <repository-url>
 cd <repository-name>
+```
 
 2. No additional installation needed - both assignments use Python standard library.
+
+---
 
 ## Assignment 1: Producer-Consumer Pattern
 
 Demonstrates thread synchronization using blocking queues and wait/notify mechanism.
 
-Features
+### Features
+
 - Custom SharedQueue with thread-safe operations
 - Producer thread that reads from source and adds to queue
 - Consumer thread that reads from queue and stores in destination
 - ProducerConsumerSystem for orchestrating multiple producers/consumers
 
-## Run Demo
+### Run Demo
 
+```bash
 cd assignment1
 python producer_consumer.py
+```
 
-## Run Tests
+### Run Tests
 
+```bash
 cd assignment1
 python -m unittest test_producer_consumer -v
+```
 
-## Sample Output
+### Sample Output
 
+```
 DEMO 1: Single Producer - Single Consumer
 
 [Producer] Produced: Item-1 (Queue size: 1)
@@ -63,12 +77,16 @@ DEMO 2: Multiple Producers - Multiple Consumers
 ...
 System Complete
 Total items in destination: 14
+```
+
+---
 
 ## Assignment 2: Sales Data Analysis
 
 Demonstrates functional programming with stream operations, data aggregation, and lambda expressions.
 
-Features
+### Features
+
 - CSV data parsing and loading
 - Revenue calculations (total, average, by category, by region)
 - Top products and customers analysis
@@ -77,18 +95,23 @@ Features
 - Mapping transformations
 - Category and regional breakdowns
 
-## Run Analysis
+### Run Analysis
 
+```bash
 cd assignment2
 python sales_analysis.py
+```
 
-## Run Tests
+### Run Tests
 
+```bash
 cd assignment2
 python -m unittest test_sales_analysis -v
+```
 
-## Sample Output
+### Sample Output
 
+```
 SALES DATA ANALYSIS REPORT
 
 Data source: sales_data.csv
@@ -113,18 +136,21 @@ South: $10,998.54 (26.6%)
 East: $10,258.30 (24.8%)
 West: $8,564.54 (20.7%)
 ...
+```
 
-Key Concepts Demonstrated
+---
 
-Assignment 1
+## Key Concepts Demonstrated
 
-- Thread synchronization using threading.Lock and threading.Condition
+### Assignment 1
+
+- Thread synchronization using `threading.Lock` and `threading.Condition`
 - Blocking queues with wait/notify mechanism
 - Producer-consumer pattern
 - Concurrent programming with multiple threads
 - Thread-safe data structures
 
-Assignment 2
+### Assignment 2
 
 - Functional programming paradigms
 - Lambda expressions
