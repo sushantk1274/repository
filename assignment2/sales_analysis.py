@@ -1,10 +1,14 @@
 import csv
+import logging
 from functools import reduce
 from itertools import groupby
 from operator import itemgetter
 from typing import List, Dict, Any, Callable
 from datetime import datetime
 from collections import defaultdict
+
+logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
+logger = logging.getLogger(__name__)
 
 
 class SalesData:
@@ -33,9 +37,18 @@ class SalesAnalyzer:
 
     # Load and parse CSV file into SalesData objects
     def _load_data(self, file_path: str):
-        with open(file_path, 'r', encoding='utf-8') as file:
-            reader = csv.DictReader(file)
-            self.data = list(map(lambda row: SalesData(row), reader))
+        logger.info(f"Loading data from {file_path}")
+        try:
+            with open(file_path, 'r', encoding='utf-8') as file:
+                reader = csv.DictReader(file)
+                self.data = list(map(lambda row: SalesData(row), reader))
+            logger.info(f"Loaded {len(self.data)} records")
+        except FileNotFoundError:
+            logger.error(f"File not found: {file_path}")
+            raise
+        except Exception as e:
+            logger.error(f"Error loading data: {e}")
+            raise
 
     # Calculate total revenue across all sales
     def total_revenue(self) -> float:
@@ -44,6 +57,7 @@ class SalesAnalyzer:
     # Calculate average order value
     def average_order_value(self) -> float:
         if not self.data:
+            logger.warning("No data available for average calculation")
             return 0.0
         total = self.total_revenue()
         return total / len(self.data)
@@ -186,6 +200,7 @@ def format_currency(value: float) -> str:
 
 def run_analysis(csv_path: str):
     # Execute all analysis operations and print results
+    logger.info(f"Starting analysis for {csv_path}")
     analyzer = SalesAnalyzer(csv_path)
 
     print_section("SALES DATA ANALYSIS REPORT")
@@ -265,6 +280,7 @@ def run_analysis(csv_path: str):
     print("\n" + "=" * 60)
     print(" ANALYSIS COMPLETE")
     print("=" * 60)
+    logger.info("Analysis completed successfully")
 
 
 if __name__ == "__main__":
