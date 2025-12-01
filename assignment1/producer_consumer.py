@@ -1,7 +1,11 @@
 import threading
 import time
 import random
+import logging
 from typing import List, Any
+
+logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
+logger = logging.getLogger(__name__)
 
 
 class SharedQueue:
@@ -18,8 +22,10 @@ class SharedQueue:
     def put(self, item: Any) -> bool:
         with self.not_full:
             while len(self.queue) >= self.max_size and not self.closed:
+                logger.debug(f"Queue full, waiting to put: {item}")
                 self.not_full.wait()
             if self.closed:
+                logger.warning("Queue closed, cannot put item")
                 return False
             self.queue.append(item)
             self.not_empty.notify()
@@ -30,9 +36,11 @@ class SharedQueue:
         with self.not_empty:
             start_time = time.time()
             while len(self.queue) == 0 and not self.closed:
+                logger.debug("Queue empty, waiting for item")
                 if timeout is not None:
                     remaining = timeout - (time.time() - start_time)
                     if remaining <= 0:
+                        logger.debug("Get timeout reached")
                         return None
                     self.not_empty.wait(timeout=remaining)
                 else:
@@ -46,6 +54,7 @@ class SharedQueue:
     # Signal that no more items will be added
     def close(self):
         with self.lock:
+            logger.info("Closing queue")
             self.closed = True
             self.not_empty.notify_all()
             self.not_full.notify_all()
@@ -71,14 +80,17 @@ class Producer(threading.Thread):
 
     # Main producer loop
     def run(self):
+        logger.info(f"{self.name} started with {len(self.source)} items")
         for item in self.source:
             if self.shared_queue.closed:
+                logger.warning(f"{self.name} stopping - queue closed")
                 break
             success = self.shared_queue.put(item)
             if success:
                 self.items_produced += 1
                 print(f"[{self.name}] Produced: {item} (Queue size: {self.shared_queue.size()})")
                 time.sleep(random.uniform(0.01, 0.05))
+        logger.info(f"{self.name} finished - produced {self.items_produced} items")
         print(f"[{self.name}] Finished. Total items produced: {self.items_produced}")
 
 
@@ -93,6 +105,7 @@ class Consumer(threading.Thread):
 
     # Main consumer loop
     def run(self):
+        logger.info(f"{self.name} started")
         while self.running:
             item = self.shared_queue.get(timeout=0.5)
             if item is not None:
@@ -101,7 +114,9 @@ class Consumer(threading.Thread):
                 print(f"[{self.name}] Consumed: {item} (Queue size: {self.shared_queue.size()})")
                 time.sleep(random.uniform(0.02, 0.08))
             elif self.shared_queue.closed and self.shared_queue.is_empty():
+                logger.info(f"{self.name} exiting - queue closed and empty")
                 break
+        logger.info(f"{self.name} finished - consumed {self.items_consumed} items")
         print(f"[{self.name}] Finished. Total items consumed: {self.items_consumed}")
 
     # Stop the consumer thread
